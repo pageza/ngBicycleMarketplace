@@ -6,6 +6,7 @@ const User = mongoose.model('User');
 
 module.exports = {
     registerUser: (req,res) => {
+      console.log('This is the user in the controller: ', req.body);
         User.findOne({email: req.body.email}, (err, user) =>{
             // TODO: Design method to check for user in the DB
             //  If user is in DB throw error, otherwise create user
@@ -15,7 +16,7 @@ module.exports = {
                 return  res.json({'error': 'The passwords do not match'})
             }
             // TODO: has password and validate for special characters
-            password.encryptPassword(req.body.password)
+            // password.encryptPassword(req.body.password)
         })
     },
     loginUser: (req,res) => {

@@ -1,7 +1,7 @@
 // Require the controllers from '../controllers/<file name>
 const user = require('../controllers/Users')
 const bicycles = require('../controllers/Bicycles')
-
+const path = require('path')
 // Create the exports
 module.exports = (app) => {
     // Create routes for API behind ngBicycleMarketplace
@@ -14,5 +14,7 @@ module.exports = (app) => {
     app.delete('/logout', (req, res) => {
         user.logoutUser(req,res)
     })
-
+    app.all("*", (req,res,next) => {
+            res.sendFile(path.resolve("./public/dist/public/index.html"))
+        })
 }
