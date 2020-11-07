@@ -10,9 +10,11 @@ export class LoginService {
     private _http: HttpClient
   ) { }
   loginUser(user) {
+    console.log('in the service', user)
     return this._http.post('/login', user)
   }
   addUser(user) {
+    console.log('in the service: ', user)
     return this._http.post('/register', user)
   }
 }

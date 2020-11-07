@@ -1,31 +1,40 @@
-<div class="card" *ngIf="!registered">
-  <form class="form" (click)="addUser(user)">
-    <div class="card">
+<div class="container" *ngIf="!registered">
+  <form class="" (submit)="addUser(user)">
+    <div class="form-group">
       <label for="first_name">First Name:</label>
-      <input id='first_name' type="text" name="first_name" [(ngModel)]="user.fname" placeholder="Enter your first name">
-      <label for="last_name">Last Name:</label>
-      <input id='last_name' type="text" name="last_name" [(ngModel)]="user.lname" placeholder="Enter your last name">
-      <label for="email">Email: </label>
-      <input id='email' type="email" name="email" [(ngModel)]="user.email" placeholder="Enter your email">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="user.password" placeholder="Enter a password">
-      <label for="passwordConfirm">Please Re-enter your password</label>
-      <input type="password" id="passwordConfirm" name="passwordConfirm" [(ngModel)]="user.passwordConfirm">
-      <button type="submit" name="submit">Submit</button>
+      <input id='first_name' class="form-control" type="text" name="first_name" [(ngModel)]="user.fname" placeholder="Enter your first name">
     </div>
-  </form>
-  <button (click)="registered = true" name="button">Login</button>
-</div>
-<div class="card" *ngIf="registered">
-  <form class="" (click)="loginUser(user)">
-  <div class="card">
-      <label for="email">Email:</label>
-      <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email">
+    <div class="form-group">
+      <label for="last_name">Last Name:</label>
+      <input id='last_name' class="form-control" type="text" name="last_name" [(ngModel)]="user.lname" placeholder="Enter your last name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input id='email' class="form-control" type="email" name="email" [(ngModel)]="user.email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" name="password" [(ngModel)]="user.password" placeholder="Password">
-      <button type="submit" name="login">Login</button>
-  </div>
-</form>
-  <button (click)="registered = false" name="register">Register</button>
-
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" placeholder="Enter a password">
+    </div>
+    <div class="form-group">
+      <label for="passwordConfirm">Please Re-enter your password</label>
+      <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" [(ngModel)]="user.passwordConfirm">
+    </div>
+    <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+  </form>
+  <button (click)="registered = true" class="btn btn-success mt-3" name="button">Login</button>
+</div>
+<div class="container" *ngIf="registered">
+  <form class="" (submit)="loginUser(user)">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" name="email" [(ngModel)]="user.email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="user.password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary" name="login">Login</button>
+  </form>
+  <button (click)="registered = false" class="btn btn-info mt-3" name="register">Register</button>
 </div>

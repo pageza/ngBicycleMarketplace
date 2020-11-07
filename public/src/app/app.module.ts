@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from "./login.service";
+import { BikeOfTheDayComponent } from './bike-of-the-day/bike-of-the-day.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    BikeOfTheDayComponent
   ],
   imports: [
     BrowserModule,

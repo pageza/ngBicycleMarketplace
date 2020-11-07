@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from "../login.service";
-import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
+import {log} from "util";
 
 @Component({
   selector: 'app-login',
@@ -21,11 +21,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   addUser(user) {
+    console.log(user)
     const observable = this._login.addUser(user)
-    observable.subscribe( data => console.log('This is the user in the component: ',data))
+    observable.subscribe( data => this.loginUser(data.email))
   }
   loginUser(user) {
-    console.log(user);
-
+    console.log('in the login function',user);
+    const observable = this._login.loginUser(user.email)
+    observable.subscribe(data => log('Got this user: ', data) )
   }
 }

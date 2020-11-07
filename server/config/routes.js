@@ -6,6 +6,7 @@ const path = require('path')
 module.exports = (app) => {
     // Create routes for API behind ngBicycleMarketplace
     app.post('/register', (req,res) => {
+        console.log('in the routes: ', req.body)
         user.registerUser(req,res)
     });
     app.post('/login', (req,res) => {
